@@ -1,9 +1,19 @@
-<div fxLayout="row">
+<div fxLayout="row" fxLayout.lt-sm="column" class="detail">
     <div fxFlex="30">
         <img class=detail-poster src="{{ movie.poster_image }}" alt="Poster Image">
     </div>
-    <div fxFlex="70">
+    <div fxFlex="70" class="detail-text">
         <h2 class="detail-title">{{ movie.name }}</h2>
+        <div class="detail-divider"></div>
+        <div>
+            <b>Release Date:</b>
+            <p>{{ movie.release_date }}</p>
+        </div>
+        <div class="detail-divider"></div>
+        <span class="detail-genre" *ngFor="let genre of movie.genre">{{ genre }}</span>
+        <div class="detail-divider"></div>
+        <p>{{ movie.overview }}</p>
+
     </div>
 </div>
 

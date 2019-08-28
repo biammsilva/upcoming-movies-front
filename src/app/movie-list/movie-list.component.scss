@@ -1,3 +1,23 @@
 .card-list {
     padding: 15px;
 }
+
+.search-box {
+    float: left;
+    width: 100%;
+}
+
+.search-button {
+    float: left;
+    border-radius: 0%;
+    margin-left: 20px;
+    width: 25px;
+}
+
+.search-input {
+    border-radius: 0%;
+    border: 1px solid #ccc;
+    height: 55px;
+    width: 300px;
+    font-size: 2rem;
+}

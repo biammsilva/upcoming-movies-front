@@ -15,7 +15,7 @@ export class MovieListComponent implements OnInit {
     this.getMovies();
   }
 
-  getMovies(){
+  getMovies() {
     this.movies = [
         {
           "id":384018,
@@ -66,5 +66,11 @@ export class MovieListComponent implements OnInit {
           "release_date":"2019-07-26"
         }
       ]
+  }
+
+  search(event) {
+    let text = event.target.value;
+    console.log(text);
+    this.movies = [];
   }
 }

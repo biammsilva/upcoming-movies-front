@@ -1,1 +1,3 @@
-<p>movie-list works!</p>
+<div fxLayout="row wrap" fxLayoutGap="10px" class="card-list">
+    <app-movie-card [movie]="movie" *ngFor="let movie of movies"></app-movie-card>
+</div>

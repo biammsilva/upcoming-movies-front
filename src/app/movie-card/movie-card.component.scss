@@ -1,0 +1,39 @@
+.movie-card {
+  cursor: pointer;
+  max-width: 260px;
+  margin: 5px;
+
+  &-header {
+    max-height: 50px;
+    height: 50px;
+    text-align: center;
+  }
+
+  &-overview {
+    padding: 2px;
+    height: 100px;
+    max-height: 100px;
+    text-align: justify;
+    overflow-y: scroll;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: none; 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc; 
+}
+
+  

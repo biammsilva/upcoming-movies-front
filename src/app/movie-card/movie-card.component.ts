@@ -12,9 +12,7 @@ export class MovieCardComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   details(){
     this.router.navigate(['/movie', this.movie.id])

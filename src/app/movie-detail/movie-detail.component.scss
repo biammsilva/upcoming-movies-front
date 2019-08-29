@@ -1,6 +1,7 @@
 .detail {
     &-poster {
         max-width: 100%;
+        display: block;
     }
 
     &-title {
@@ -18,6 +19,7 @@
         padding: 10px;
         background-color: darkmagenta;
         color: white;
+        margin: 2px;
     }
 
     &-divider {

@@ -1,7 +1,9 @@
 <mat-card class="movie-card" (click)="details()">
     <mat-card-header>
         <mat-card-title class="movie-card-header">{{ movie.name }}</mat-card-title>
-        <mat-card-subtitle>{{ movie.genre }}</mat-card-subtitle>
+        <mat-card-subtitle>
+            <span class="movie-card-genre" *ngFor="let genre of movie.genre"> {{ genre.name }} </span>
+        </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="{{ movie.poster_image }}" alt="Poster Image">
     <mat-card-content>

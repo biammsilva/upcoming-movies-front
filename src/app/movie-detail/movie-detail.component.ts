@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../movie';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,23 +11,17 @@ import { Movie } from '../movie';
 export class MovieDetailComponent implements OnInit {
   movie: Movie;
 
-  constructor( private route: ActivatedRoute) { }
+  constructor( private route: ActivatedRoute, private service: MovieService ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-    this.getMovie();
+    this.getMovie(id);
   }
 
-  getMovie() {
-    this.movie = {
-      "id":384018,
-      "name":"Fast & Furious Presents: Hobbs & Shaw",
-      "poster_image":"https://image.tmdb.org/t/p/original/keym7MPn1icW1wWfzMnW3HeuzWU.jpg",
-      "genre":[28],
-      "overview":"A spinoff of The Fate of the Furious, focusing on Johnson's US Diplomatic Security Agent Luke Hobbs forming an unlikely alliance with Statham's Deckard Shaw.",
-      "release_date":"2019-08-02"
-    }
+  getMovie(id) {
+    this.service.getMovie(id).subscribe((movie: Movie) => {
+      this.movie = movie;
+    })
   }
 
 }

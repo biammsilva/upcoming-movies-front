@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule, MatGridListModule, 
+import { MatCardModule, MatIconModule, 
          MatToolbarModule, MatButtonModule,
-         MatIconModule } from '@angular/material'
+         MatProgressSpinnerModule} from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
@@ -29,9 +29,9 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     FlexLayoutModule,
     MatCardModule,
     MatButtonModule,
-    MatGridListModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

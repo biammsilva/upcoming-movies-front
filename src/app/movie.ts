@@ -18,5 +18,6 @@ export class Genre {
 }
 
 export class Pagination {
-  page: 1;
+  page: number;
+  total_pages: number;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Movie, PaginatedMovies } from '../movie';
 import { MovieService } from '../movie.service';
 import { Subject } from 'rxjs';
@@ -13,6 +13,8 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class MovieListComponent implements OnInit {
   movies: Movie[];
   page: number = 1;
+  total_pages: number = 1;
+  finalScroll: boolean = false;
   private searchUpdated: Subject<string> = new Subject()
 
   constructor(
@@ -34,10 +36,17 @@ export class MovieListComponent implements OnInit {
     this.getMovies();
   }
 
-  getMovies() {
+  getMovies(concat=false) {
     this.service.getMovies(this.page).subscribe((data: PaginatedMovies) => {
-      this.movies = data.movies;
+      if (concat){
+        for (const movie of data.movies) {
+          this.movies.push(movie);
+        }
+      } else {
+        this.movies = data.movies;
+      }
       this.page = data.pagination.page;
+      this.total_pages = data.pagination.total_pages;
     })
   }
 
@@ -47,6 +56,20 @@ export class MovieListComponent implements OnInit {
       this.getMovies();
     }
     this.searchUpdated.next(text);
-    
+  }
+
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+        if (this.page < this.total_pages) {
+          console.log(this.page);
+          let element = this;
+          setTimeout(null, 2000);
+          element.page = element.page + 1;
+          element.getMovies(true);
+        } else {
+          this.finalScroll = true;
+        }
+    }
   }
 }

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  API_URL = 'http://localhost:3000';
 
   constructor( private http: HttpClient ) { }
 
   getMovies(page) {
-    return this.http.get(this.API_URL + '/movie', { 
+    return this.http.get(environment.API_URL + '/movie', { 
       params: {
         page: page
       }
@@ -18,11 +18,11 @@ export class MovieService {
   }
 
   getMovie(id) {
-    return this.http.get(this.API_URL + `/movie/${id}`);
+    return this.http.get(environment.API_URL + `/movie/${id}`);
   }
 
   searchMovies(page, text) {
-    return this.http.get(this.API_URL + '/movie/search', { 
+    return this.http.get(environment.API_URL + '/movie/search', { 
       params: {
         page: page,
         text: text

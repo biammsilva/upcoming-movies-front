@@ -62,7 +62,7 @@ export class MovieListComponent implements OnInit {
   @HostListener("window:scroll", [])
   onScroll(): void {
     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-        if (this.page < this.total_pages || !this.finalScroll) {
+        if (this.page < this.total_pages && this.finalScroll) {
           let element = this;
           setTimeout(null, 2000);
           element.page = element.page + 1;

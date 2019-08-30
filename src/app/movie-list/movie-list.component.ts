@@ -14,7 +14,7 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   page: number = 1;
   total_pages: number = 1;
-  finalScroll: boolean = true;
+  finalScroll: boolean = false;
   private searchUpdated: Subject<string> = new Subject()
 
   constructor(
@@ -45,7 +45,6 @@ export class MovieListComponent implements OnInit {
       } else {
         this.movies = data.movies;
       }
-      this.finalScroll = false;
       this.page = data.pagination.page;
       this.total_pages = data.pagination.total_pages;
     })
@@ -62,7 +61,7 @@ export class MovieListComponent implements OnInit {
   @HostListener("window:scroll", [])
   onScroll(): void {
     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-        if (this.page < this.total_pages && this.finalScroll) {
+        if (this.page < this.total_pages) {
           let element = this;
           setTimeout(null, 2000);
           element.page = element.page + 1;

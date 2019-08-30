@@ -14,7 +14,7 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   page: number = 1;
   total_pages: number = 1;
-  finalScroll: boolean = false;
+  finalScroll: boolean = true;
   private searchUpdated: Subject<string> = new Subject()
 
   constructor(
@@ -45,6 +45,7 @@ export class MovieListComponent implements OnInit {
       } else {
         this.movies = data.movies;
       }
+      this.finalScroll = false;
       this.page = data.pagination.page;
       this.total_pages = data.pagination.total_pages;
     })

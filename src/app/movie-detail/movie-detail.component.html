@@ -1,1 +1,23 @@
-<p>movie-detail works!</p>
+<div *ngIf="!movie">
+    <h2>Carregando ...</h2>
+</div>
+
+<div fxLayout="row" fxLayout.lt-sm="column" class="detail" *ngIf="movie">
+    <div fxFlex="30">
+        <img class=detail-poster src="{{ movie.poster_image }}" alt="Poster Image">
+    </div>
+    <div fxFlex="70" class="detail-text">
+        <h2 class="detail-title">{{ movie.name }}</h2>
+        <div class="detail-divider"></div>
+        <div>
+            <b>Release Date:</b>
+            <p>{{ movie.release_date }}</p>
+        </div>
+        <div class="detail-divider"></div>
+        <span class="detail-genre" *ngFor="let genre of movie.genre">{{ genre.name }}</span>
+        <div class="detail-divider"></div>
+        <p>{{ movie.overview }}</p>
+
+    </div>
+</div>
+

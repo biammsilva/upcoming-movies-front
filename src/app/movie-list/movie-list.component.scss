@@ -1,0 +1,37 @@
+.card-list {
+    padding: 15px;
+    min-height: 800px;
+}
+
+.search-box {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.search-button {
+    float: left;
+    border-radius: 0%;
+    margin-left: 20px;
+    width: 25px;
+    text-align: center;
+}
+
+.search-input {
+    border-radius: 0%;
+    border: 1px solid #ccc;
+    height: 55px;
+    width: 16.6rem;
+    font-size: 2rem;
+}
+
+.spinner {
+
+    &-item{
+        margin: 0 auto;
+    }
+
+    &-box {
+        margin: 50px;
+    }
+}

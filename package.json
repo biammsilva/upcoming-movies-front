@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -16,11 +17,14 @@
     "@angular/common": "~8.2.3",
     "@angular/compiler": "~8.2.3",
     "@angular/core": "~8.2.3",
+    "@angular/flex-layout": "^8.0.0-beta.26",
     "@angular/forms": "~8.2.3",
     "@angular/material": "^8.1.4",
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
+    "express": "^4.17.1",
+    "flex-layout": "^1.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
